@@ -10,7 +10,7 @@ This Gem only support `>= rails 4.1.0` and above versions.
 
 1. Add PaperTrailGlobalid to your `Gemfile`.
 
-  `gem 'paper_trail_globalid'`
+  `gem 'paper_trail-globalid'`
 
 1. And then execute:
 
@@ -55,7 +55,7 @@ widget.versions.last.actor                  # "admin_name"
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/paper_trail_globalid/fork )
+1. Fork it ( https://github.com/[my-github-username]/paper_trail-globalid/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

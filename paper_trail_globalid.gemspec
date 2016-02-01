@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'paper_trail_globalid/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "paper_trail_globalid"
+  spec.name          = "paper_trail-globalid"
   spec.version       = PaperTrailGlobalid::VERSION
   spec.authors       = ["Ankit"]
   spec.email         = ["ankit.bansal1910@gmail.com"]
