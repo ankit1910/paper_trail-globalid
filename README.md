@@ -1,19 +1,52 @@
 # PaperTrailGlobalid
-This gem is a extension to paper_trail gem https://github.com/airblade/paper_trail . So you need to pre install `paper_trail` gem. This gem will give you one more method `actor` which will return you the active record object who was responsible for change.
+This gem is an extension to paper_trail gem https://github.com/airblade/paper_trail. That means you need to pre install `paper_trail` gem. This gem will add one more method `actor` to instances of `PaperTrail::Version` that will return you the `ActiveRecord` object who was responsible for change.
 
 ## Installation
 
 1. Add PaperTrailGlobalid to your `Gemfile`.
 
-  gem 'paper_trail_globalid'
+  `gem 'paper_trail_globalid'`
 
 1. And then execute:
 
-  $ bundle
+  ```
+  bundle install
+  ```
 
-## Usage
+## Basic Usage
 
-TODO: Write usage instructions here
+Basically this gem works on stroring global_id to whodunnit field of `PaperTrail::Version table`. As this is an additional extension installed, this will not hinder / break existing paper_trail functionalities.
+
+```ruby
+widget = Widget.find 42
+widget.versions               # [<PaperTrail::Version>, <PaperTrail::Version>, ...]
+v = widget.versions.last
+```
+Now you can also store object to `PaperTrail.whodunnit=`, and if object will be instance of `ActiveRecord::Base` it will store the global id in the version's `whodunnit` column.
+
+And you can also retrieve the actually object later just by using method `actor`.
+
+```ruby
+admin = Admin.find(1)                       # <Admin:0x007fa2df9a5590>
+
+PaperTrail.whodunnit = admin
+PaperTrail.actor                            # <Admin:0x007fa2df9a5590> actual object
+
+widget.update_attributes :name => 'Wibble'
+widget.versions.last.whodunnit              # "gid://app/Admin/1"
+widget.versions.last.actor                  # retruns the actuall object
+```
+
+Method `actor` will return the whodunnit value if we pass value another than `ActiveRecord` object.
+
+```ruby
+PaperTrail.whodunnit = 'admin_name'
+PaperTrail.actor                            # "admin_name"
+
+widget.update_attributes :name => 'Wibble'
+widget.versions.last.whodunnit              # "admin_name"
+widget.versions.last.actor                  # "admin_name"
+```
 
 ## Contributing
 
