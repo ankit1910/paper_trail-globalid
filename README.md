@@ -1,20 +1,15 @@
 # PaperTrailGlobalid
-
-TODO: Write a gem description
+This gem is a extension to paper_trail gem https://github.com/airblade/paper_trail . So you need to pre install `paper_trail` gem. This gem will give you one more method `actor` which will return you the active record object who was responsible for change.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+1. Add PaperTrailGlobalid to your `Gemfile`.
 
-    gem 'paper_trail_globalid'
+  gem 'paper_trail_globalid'
 
-And then execute:
+1. And then execute:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install paper_trail_globalid
+  $ bundle
 
 ## Usage
 
