@@ -1,3 +1,3 @@
 module PaperTrailGlobalid
-  VERSION = "0.1.2.rc"
+  VERSION = "0.1.3.rc"
 end
