@@ -1,7 +1,8 @@
 # PaperTrailGlobalid
+[![Code Climate](https://codeclimate.com/github/ankit1910/paper_trail-globalid/badges/gpa.svg)](https://codeclimate.com/github/ankit1910/paper_trail-globalid)
+
 This gem is an extension to paper_trail gem https://github.com/airblade/paper_trail. That means you need to pre install `paper_trail` gem. This gem will add one more method `actor` to instances of `PaperTrail::Version` that will return you the `ActiveRecord` object who was responsible for change.
 
-[![Code Climate](https://codeclimate.com/github/ankit1910/paper_trail-globalid/badges/gpa.svg)](https://codeclimate.com/github/ankit1910/paper_trail-globalid)
 
 ## Supported Rails
 
