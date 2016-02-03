@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'byebug'
 require_relative '../spec/support/order.rb'
 require_relative '../spec/support/admin.rb'
 

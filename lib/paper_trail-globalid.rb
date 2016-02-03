@@ -4,7 +4,9 @@ require "paper_trail_globalid/version_concern"
 
 module PaperTrailGlobalid
   module ::PaperTrail
-    include ::PaperTrailGlobalid::PaperTrail
+    class << self
+      prepend ::PaperTrailGlobalid::PaperTrail
+    end
   end
 
   module ::PaperTrail

@@ -22,3 +22,4 @@ tmp
 mkmf.log
 .DS_Store
 .byebug_history
+paper_trail_globalid_test
