@@ -32,7 +32,7 @@ v = widget.versions.last
 ```
 Now you can also store object to `PaperTrail.whodunnit=`, and if object will be instance of `ActiveRecord::Base` it will store the global id in the version's `whodunnit` column.
 
-And you can also retrieve the actually object later just by using method `actor`.
+And you can also retrieve the actual object later just by using method `actor`.
 
 ```ruby
 admin = Admin.find(1)                       # <Admin:0x007fa2df9a5590>
