@@ -2,7 +2,6 @@ require 'spec_helper'
 require_relative '../spec/support/order.rb'
 require_relative '../spec/support/admin.rb'
 
-
 describe PaperTrailGlobalid do
   before(:all) do
     ActiveRecord::Migration.verbose = false
@@ -73,6 +72,42 @@ describe PaperTrailGlobalid do
             it 'returns value itself' do
               PaperTrail.whodunnit="test"
               expect(PaperTrail.whodunnit).to eq("test")
+            end
+          end
+        end
+      end
+
+      if PaperTrail.respond_to? :request
+        describe 'request methods' do
+          describe 'PaperTrail.request.actor' do
+            context 'when value for whodunnit is object of ActiveRecord' do
+              it 'returns object' do
+                PaperTrail.request.whodunnit=@admin
+                expect(PaperTrail.request.actor).to eq(@admin)
+              end
+            end
+
+            context 'when value for whodunnit is not an object of ActiveRecord' do
+              it 'returns value itself' do
+                PaperTrail.request.whodunnit="test"
+                expect(PaperTrail.request.actor).to eq("test")
+              end
+            end
+          end
+
+          describe '.whodunnit' do
+            context 'when value for whodunnit is object of ActiveRecord' do
+              it 'returns global id' do
+                PaperTrail.request.whodunnit=@admin
+                expect(PaperTrail.request.whodunnit).to eq(@admin.to_gid)
+              end
+            end
+
+            context 'when value for whodunnit is not an object of ActiveRecord' do
+              it 'returns value itself' do
+                PaperTrail.request.whodunnit="test"
+                expect(PaperTrail.request.whodunnit).to eq("test")
+              end
             end
           end
         end

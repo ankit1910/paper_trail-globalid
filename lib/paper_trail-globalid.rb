@@ -10,6 +10,14 @@ module PaperTrailGlobalid
   end
 
   module ::PaperTrail
+    module Request
+      class << self
+        prepend ::PaperTrailGlobalid::PaperTrail
+      end
+    end
+  end
+
+  module ::PaperTrail
     module VersionConcern
       include ::PaperTrailGlobalid::VersionConcern
     end
