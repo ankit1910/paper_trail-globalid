@@ -1,7 +1,7 @@
 module PaperTrailGlobalid
   module PaperTrail
     def whodunnit=(value)
-      if value.is_a? ActiveRecord::Base
+      if value.respond_to?(:to_gid)
         paper_trail_store[:whodunnit] = value.to_gid
       else
         paper_trail_store[:whodunnit] = value
