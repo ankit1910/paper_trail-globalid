@@ -42,7 +42,7 @@ PaperTrail.actor                            # <Admin:0x007fa2df9a5590> actual ob
 
 widget.update_attributes :name => 'Wibble'
 widget.versions.last.whodunnit              # "gid://app/Admin/1"
-widget.versions.last.actor                  # retruns the actuall object
+widget.versions.last.actor                  # returns the actual object
 ```
 
 Method `actor` will return the whodunnit value if we pass value another than `ActiveRecord` object.
