@@ -2,7 +2,7 @@ module PaperTrailGlobalid
   module VersionConcern
     def whodunnit=(value)
       if value.is_a? ActiveRecord::Base
-        super(value.to_gid)
+        super(value.persisted? ? value.to_gid : nil)
       else
         super
       end
